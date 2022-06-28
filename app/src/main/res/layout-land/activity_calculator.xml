@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/fon2" />
+        android:src="@drawable/fon2">
+
+    </ImageView>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -24,15 +26,14 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill_horizontal"
             android:gravity="end"
-            android:padding="@dimen/default_padding"
+            android:padding="@dimen/padding_text_result"
             android:textSize="@dimen/result_size"
             android:textStyle="bold|italic"
-            tools:text="433"
-            android:background="@drawable/fon_for_result"/>
+            tools:text="433" />
 
         <Button
             android:id="@+id/key_1"
-            style="@style/calc_buttons.calc_button1"
+            style="@style/calc_buttons"
             android:text="@string/key_1" />
 
         <Button
@@ -52,7 +53,7 @@
 
         <Button
             android:id="@+id/key_4"
-            style="@style/calc_buttons.calc_button1"
+            style="@style/calc_buttons"
             android:text="@string/key_4" />
 
         <Button

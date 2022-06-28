@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="calc_buttons">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:background">@drawable/fon_for_result</item>
+    </style>
+
+    <style name="calc_buttons.calc_button1">
+
+        <item name="android:backgroundTint">#DD2C00</item>
+    </style>
+</resources>
