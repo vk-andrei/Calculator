@@ -1,11 +1,16 @@
 package com.example.calculator.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.calculator.R;
 import com.example.calculator.model.CalculatorImplementation;
@@ -14,19 +19,43 @@ import com.example.calculator.model.Operator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CalculatorActivity extends AppCompatActivity implements CalculatorView{
+public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
 
-
-    private TextView resultView;
+    private EditText resultView;
     // СВЯЗКА между МОДЕЛЬЮ и UI
     private CalculatorPresenter calculatorPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // ТЕМУ ДЛЯ АКТИВИТИ СТАВИМ ТУТ! ДО setContentView!!!
+        // setTheme(R.style.Theme_Calculator_V2);
+
+        // Тут хранятся настройки. ПЕРВОЕ - имя файла где хр-ся настройки, ВТОРОЕ - говорит о том,
+        // что только само приложение будет иметь право читать содержимое данных настроек
+        SharedPreferences preferences = getSharedPreferences("themes.xml", Context.MODE_PRIVATE);
+
+        int theme = preferences.getInt("theme", R.style.Theme_Calculator);
+        setTheme(theme);
+
+
+
         setContentView(R.layout.activity_calculator);
 
         resultView = findViewById(R.id.result);
+        // запретим вводить символы с клавиатуры смартфона
+        resultView.setShowSoftInputOnFocus(false);
+        // очистим поле ВЫВОДА если кто-то захочет по нему кликнуть
+        resultView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getString(R.string.display).equals(resultView.getText().toString())) {
+                    resultView.setText("");
+                }
+            }
+        });
+
 
         // передаем саму активити (View) т.к. она реализ. CalculatorView и модель (CalculatorImpl)
         calculatorPresenter = new CalculatorPresenter(this, new CalculatorImplementation());
@@ -38,6 +67,24 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
                 calculatorPresenter.key_1_Pressed();
             }
         });*/
+        /** доступ к ресурсам как пример: **/
+        String keyOne = getResources().getString(R.string.key_1);
+        String keyOneShortWay = getString(R.string.key_1);
+        float dimenOne = getResources().getDimension(R.dimen.result_size);
+        int colorBTN = getResources().getColor(R.color.buttons_digit);
+        int colorBTN1 = ContextCompat.getColor(this, R.color.buttons_digit);
+        // доступ к View из layout
+        View layout = getLayoutInflater().inflate(R.layout.activity_calculator, null);
+        // доступ к drawable
+        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.field_for_result);
+        /**********************************/
+
+        /** Доступ к КОНФИГУРАЦИИ **/
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // что-то сделать!
+        }
+        /********************************/
+
 
         // НО мы сделаем не по одной, а загоним их все в MAP:
         Map<Integer, Integer> digits = new HashMap<>();
@@ -58,7 +105,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
             @Override
             public void onClick(View view) {
                 // и передадим, то что нажато в Presenter:
-                calculatorPresenter.onDigitPressed(digits.get(view.getId()));  // ???????
+                calculatorPresenter.onDigitPressed(digits.get(view.getId()));
                 //Log.d("TAG: this ID we want to find:", String.valueOf(view.getId()));
                 //Log.d("TAG: this is the value of this ID:", String.valueOf(digits.get(view.getId())));
             }
@@ -81,7 +128,6 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         operators.put(R.id.key_minus, Operator.SUB);
         operators.put(R.id.key_divide, Operator.DIV);
         operators.put(R.id.key_multiply, Operator.MULT);
-        operators.put(R.id.key_equal, Operator.EQUAL);
 
         View.OnClickListener operatorClickListener = new View.OnClickListener() {
             @Override
@@ -103,6 +149,51 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
                 calculatorPresenter.onDotPressed();
             }
         });
+
+        /** КНОПКИ ВЫБОРА ТЕМЫ **/
+
+        Button themeOne = findViewById(R.id.choose_theme_1);
+        Button themeTwo = findViewById(R.id.choose_theme_2);
+        Button themeThree = findViewById(R.id.choose_theme_3);
+
+        if (themeOne != null) {
+            themeOne.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    preferences.edit() // Записываем в КЛЮЧ "theme" ЗНАЧЕНИЕ "R.style.Theme_Calculator"
+                            .putInt("theme", R.style.Theme_Calculator)
+                            .commit();  // - применяем немедленно
+                    recreate();         // - пересоздаем активити
+
+                }
+            });
+        }
+
+        if (themeTwo != null) {
+            themeTwo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    preferences.edit() // Записываем в КЛЮЧ "theme" ЗНАЧЕНИЕ "R.style.Theme_Calculator"
+                            .putInt("theme", R.style.Theme_Calculator_V2)
+                            .commit();  // - применяем немедленно
+                    recreate();         // - пересоздаем активити
+
+                }
+            });
+        }
+
+        if (themeThree != null) {
+            themeThree.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    preferences.edit() // Записываем в КЛЮЧ "theme" ЗНАЧЕНИЕ "R.style.Theme_Calculator"
+                            .putInt("theme", R.style.Theme_Calculator_V3)
+                            .commit();  // - применяем немедленно
+                    recreate();         // - пересоздаем активити
+
+                }
+            });
+        }
 
 
     }

@@ -15,7 +15,9 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.CalculatorActivity"
-            android:exported="true">
+            android:exported="true"
+                 >
+            <!-- Можно прописать тут иему для конкретной АКТИВИТИ android:theme="@style/Theme.Calculator.V2"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

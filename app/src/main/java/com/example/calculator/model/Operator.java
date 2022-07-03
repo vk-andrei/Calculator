@@ -4,6 +4,5 @@ public enum Operator {
     ADD,
     SUB,
     DIV,
-    MULT,
-    EQUAL
+    MULT
 }

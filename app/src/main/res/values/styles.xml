@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="calc_buttons">
+    <style name="CalcButtons">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/text_size_for_buttons</item>
         <item name="android:layout_columnWeight">1</item>
-        <item name="android:background">@drawable/fon_for_result</item>
+        <item name="android:backgroundTint">@color/buttons_digit</item>
     </style>
 
-    <style name="calc_buttons.calc_button1">
-
-        <item name="android:backgroundTint">#DD2C00</item>
+    <style name="CalcButtons.Actions">
+        <item name="android:backgroundTint">@color/teal_700</item>
     </style>
+
+
+    <style name="CalcButtons.V2">
+        <item name="android:backgroundTint">@android:color/holo_green_dark</item>
+    </style>
+
+    <style name="CalcButtons.Actions.V2">
+        <item name="android:backgroundTint">@android:color/holo_orange_light</item>
+    </style>
+
+
+    <style name="CalcButtons.V3">
+        <item name="android:backgroundTint">@android:color/holo_blue_bright</item>
+    </style>
+
+    <style name="CalcButtons.Actions.V3">
+        <item name="android:backgroundTint">@android:color/holo_blue_dark</item>
+    </style>
+
+
+
+
 </resources>

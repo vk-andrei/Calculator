@@ -29,12 +29,12 @@ public class CalculatorPresenter {
 
         if (argTwo == null) {
             argOne = argOne * 10 + digit;
-            Log.d("TAG", "onDigitPressed. argTwo = null. argOne = " + argOne);
+            //Log.d("TAG", "onDigitPressed. argTwo = null. argOne = " + argOne);
 
             showFormatted(argOne);
         } else {
             argTwo = argTwo * 10 + digit;
-            Log.d("TAG", "onDigitPressed. argTwo != null, argTwo = " + argTwo);
+            //Log.d("TAG", "onDigitPressed. argTwo != null, argTwo = " + argTwo);
 
             showFormatted(argTwo);
         }
@@ -43,17 +43,17 @@ public class CalculatorPresenter {
     // Общий метод принимающий нажатую кнопку ОПЕРАТОРА
     public void onOperatorPressed(Operator operator) {
         if (selectedOperator != null) {
-            Log.d("TAG", "onOperatorPressed. selOperator != null, = " + selectedOperator);
+            //Log.d("TAG", "onOperatorPressed. selOperator != null, = " + selectedOperator);
 
             argOne = calculator.perform(argOne, argTwo, selectedOperator);
-            Log.d("TAG", "onOperatorPressed. argOne = " + argOne);
+            //Log.d("TAG", "onOperatorPressed. argOne = " + argOne);
             showFormatted(argOne);
         }
 
-        Log.d("TAG", "onOperatorPressed. selOperator = " + selectedOperator);
+        //Log.d("TAG", "onOperatorPressed. selOperator = " + selectedOperator);
         argTwo = 0.0;
         selectedOperator = operator;
-        Log.d("TAG", "onOperatorPressed. argTwo = " + argTwo + " selOperator = " + selectedOperator);
+        //Log.d("TAG", "onOperatorPressed. argTwo = " + argTwo + " selOperator = " + selectedOperator);
 
     }
 
@@ -61,11 +61,11 @@ public class CalculatorPresenter {
     public void onDotPressed() {
         if (argTwo == null) {
             argOne = argOne * 0.1;
-            Log.d("TAG", "onDotPressed. argTwo = null, argOne = " + argOne);
+            //Log.d("TAG", "onDotPressed. argTwo = null, argOne = " + argOne);
             showFormatted(argOne);
         } else {
             argTwo = argTwo * 0.1;
-            Log.d("TAG", "onDotPressed. argTwo != null, argTwo = " + argTwo);
+            //Log.d("TAG", "onDotPressed. argTwo != null, argTwo = " + argTwo);
             showFormatted(argTwo);
         }
     }

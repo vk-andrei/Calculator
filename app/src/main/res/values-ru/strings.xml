@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">KALCUL</string>
+    <string name="key_1">АДн</string>
+    <string name="key_2">dva</string>
+    <string name="key_3">tri</string>
+    <string name="key_4">ch</string>
+    <string name="key_5">pat</string>
+    <string name="key_6">ses</string>
+    <string name="key_7">СЕМ</string>
+    <string name="key_8">vos</string>
+    <string name="key_9">dev</string>
+    <string name="key_0">nul</string>
+    <string name="key_dot">.</string>
+    <string name="key_plus">+</string>
+    <string name="key_divide">/</string>
+    <string name="key_multiply">×</string>
+    <string name="key_minus">-</string>
+    <string name="key_plus_minus">±</string>
+    <string name="key_c">C</string>
+    <string name="key_equal">=</string>
+    <string name="display">vvedite znachenie</string>
+</resources>

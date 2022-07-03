@@ -3,4 +3,5 @@
     <dimen name="result_size">32sp</dimen>
     <dimen name="default_padding">16dp</dimen>
     <dimen name="padding_text_result">4dp</dimen>
+    <dimen name="text_size_for_buttons">20dp</dimen>
 </resources>

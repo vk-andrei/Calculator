@@ -18,4 +18,8 @@
     <string name="key_plus_minus">±</string>
     <string name="key_c">C</string>
     <string name="key_equal">=</string>
+    <string name="display">Enter a value</string>
+    <string name="choose_theme_1">THEME 1</string>
+    <string name="choose_theme_2">THEME 2</string>
+    <string name="choose_theme_3">THEME 3</string>
 </resources>

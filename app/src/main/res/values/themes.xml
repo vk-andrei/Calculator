@@ -4,18 +4,34 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <!--ЭТО ПРИМЕНИТСЯ КО ВСЕМ КНОПКАМ В ПРОЕКТЕ!!!!!!!!!!!-->
+        <!-- <item name="materialButtonStyle">@style/CalcButtons.Actions</item>-->
+
+        <item name="calcEqualBTN">@style/CalcButtons.Actions</item>
+        <item name="calcDigitsBTN">@style/CalcButtons</item>
     </style>
 
+    <!--Создадим новые темы. (ОНИ ТОЖЕ НАСЛЕДУЮТСЯ)-->
+    <style name="Theme.Calculator.V2">
+        <item name="colorPrimary">@color/red</item>
+        <item name="calcEqualBTN">@style/CalcButtons.Actions.V2</item>
+        <item name="calcDigitsBTN">@style/CalcButtons.V2</item>
+    </style>
 
-<!--    <item name="android:backgroundTint">#DD2C00</item>-->
+    <style name="Theme.Calculator.V3">
+        <item name="colorPrimary">@android:color/holo_purple</item>
+        <item name="calcEqualBTN">@style/CalcButtons.Actions.V3</item>
+        <item name="calcDigitsBTN">@style/CalcButtons.V3</item>
+    </style>
 
 
 </resources>
